@@ -3,106 +3,279 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>足立区・草加周辺｜相続に関わる不動産の悩み相談</title>
-  <meta name="description" content="足立区・草加周辺の相続に関わる不動産の悩み相談。来店不要。フォームからご相談ください。" />
+  <title>足立区・草加｜相続に関わる不動産の悩み相談（来店不要）</title>
+  <meta name="description" content="足立区・草加周辺の相続不動産の悩み相談。来店不要。状況整理→選択肢提示→次の一手まで、短時間で整理します。" />
+
   <style>
-    :root { --max: 920px; }
-    body { margin: 0; font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.7; }
-    header { padding: 28px 18px 12px; }
-    main { padding: 0 18px 96px; } /* 追従CTA分の余白 */
-    .wrap { max-width: var(--max); margin: 0 auto; }
-    .card { border: 1px solid #e5e5e5; border-radius: 14px; padding: 18px; margin: 14px 0; }
-    h1 { font-size: 22px; margin: 0 0 10px; }
-    h2 { font-size: 16px; margin: 0 0 10px; }
-    .muted { color: #666; font-size: 14px; }
-    ul { padding-left: 18px; margin: 10px 0; }
-    ol { padding-left: 18px; margin: 10px 0; }
-    .cta-fixed {
-      position: fixed; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,.96);
-      border-top: 1px solid #e5e5e5;
-      padding: 10px 12px;
-      backdrop-filter: blur(6px);
+    :root{
+      --bg:#0b0f19;
+      --card:#0f1629;
+      --ink:#0b0f19;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --max: 980px;
+      --radius: 16px;
     }
-    .cta-row { max-width: var(--max); margin: 0 auto; display: flex; gap: 10px; align-items: center; }
-    .cta-btn {
-      flex: 1;
-      display: inline-flex; justify-content: center; align-items: center;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      line-height:1.75;
+      background:#fff;
+    }
+    a{ color: inherit; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding:0 18px; }
+
+    /* Hero */
+    .hero{
+      background: radial-gradient(1200px 600px at 20% 10%, #1f2a44 0%, #0b0f19 55%, #06070a 100%);
+      color:#fff;
+      padding: 34px 0 26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%);
+      transform: rotate(18deg);
+    }
+    .pillrow{ display:flex; gap:10px; flex-wrap:wrap; margin: 6px 0 14px; }
+    .pill{
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing:.02em;
+    }
+    h1{ margin:0 0 10px; font-size: 26px; line-height:1.25; letter-spacing:.01em; }
+    .lead{ margin:0; color: rgba(255,255,255,.86); font-size: 14px; max-width: 52ch; }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+    @media (max-width: 860px){ .heroGrid{ grid-template-columns:1fr; } }
+
+    .heroCard{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .heroCard h2{ margin:0 0 8px; font-size: 14px; letter-spacing:.02em; }
+    .heroCard ul{ margin:0; padding-left: 18px; color: rgba(255,255,255,.88); font-size: 13px; }
+    .heroCard li{ margin: 6px 0; }
+
+    .primaryBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: #ffffff;
+      color:#0b0f19;
+      text-decoration:none;
+      font-weight: 800;
+      width: 100%;
+    }
+    .btnHint{ margin:8px 0 0; font-size: 12px; color: rgba(255,255,255,.75); }
+    .mini{ font-size: 12px; color: rgba(255,255,255,.72); margin-top: 10px; }
+
+    /* Sections */
+    main{ padding: 22px 0 96px; } /* CTA分の余白 */
+    .section{ margin: 18px 0; }
+    .grid3{
+      display:grid; gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px){ .grid3{ grid-template-columns:1fr; } }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background:#fff;
+    }
+    .card h3{ margin:0 0 8px; font-size: 15px; }
+    .muted{ color: var(--muted); font-size: 13px; margin: 0; }
+    .kicker{ font-weight: 800; letter-spacing:.02em; font-size: 12px; color:#111827; opacity:.75; }
+
+    .twoCol{
+      display:grid; gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .twoCol{ grid-template-columns:1fr; } }
+
+    .list{ margin: 10px 0 0; padding-left: 18px; }
+    .list li{ margin: 6px 0; }
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background:#fff;
+    }
+    summary{ cursor:pointer; font-weight: 700; }
+    details p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+    /* Fixed CTA */
+    .cta-fixed{
+      position: fixed; left:0; right:0; bottom:0;
+      background: rgba(255,255,255,.94);
+      border-top: 1px solid var(--line);
+      padding: 10px 12px;
+      backdrop-filter: blur(8px);
+    }
+    .cta-row{
+      max-width: var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .cta-sub{ width: 52%; font-size: 12px; color:#111827; opacity:.8; }
+    @media (max-width: 680px){ .cta-sub{ display:none; } }
+    .cta-btn{
+      flex:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding: 14px 14px;
       border-radius: 12px;
-      border: 0;
-      font-weight: 700;
-      text-decoration: none;
-      background: #111;
-      color: #fff;
+      background: #111827;
+      color:#fff;
+      text-decoration:none;
+      font-weight: 800;
     }
-    .cta-sub { width: 44%; font-size: 12px; color: #444; }
-    @media (max-width: 680px){ .cta-sub { display:none; } }
-    .top-btn { display: inline-block; margin-top: 10px; padding: 12px 14px; border-radius: 12px; background:#111; color:#fff; text-decoration:none; font-weight:700; }
-    .pill { display:inline-block; border:1px solid #ddd; border-radius:999px; padding:6px 10px; font-size:12px; margin-right:6px; }
   </style>
 </head>
+
 <body>
-  <header>
+  <header class="hero">
     <div class="wrap">
-      <span class="pill">足立区・草加周辺</span>
-      <span class="pill">来店不要</span>
-      <span class="pill">相続×不動産</span>
+      <div class="pillrow">
+        <span class="pill">足立区・草加周辺</span>
+        <span class="pill">来店不要</span>
+        <span class="pill">相続 × 不動産</span>
+      </div>
 
       <h1>家や土地のこと、<br>そのままになっていませんか</h1>
-      <p class="muted">相続に関わる不動産の悩み相談（足立区・草加周辺）</p>
+      <p class="lead">
+        相続に関わる不動産の悩みを、短時間で整理します。<br>
+        まずはフォームから状況を送ってください（1分）。
+      </p>
 
-      <a class="top-btn" href="FORM_URL" target="_blank" rel="noopener">相談内容を送る（1分）</a>
-      <p class="muted">※ 一般的な税金の説明のみ・情報収集のみのご相談は対象外です。</p>
+      <div class="heroGrid">
+        <div class="heroCard">
+          <h2>よくあるご相談</h2>
+          <ul>
+            <li>相続が近い／相続後に、家や土地をどうするか決められない</li>
+            <li>兄弟・親族が絡んで進まない（優先順位と次の一手が分からない）</li>
+            <li>空き家・アパートを「売る／貸す／保有」の判断に迷う</li>
+          </ul>
+          <p class="mini">※ 税金の一般論は説明できますが、確定的な税額算定・申告は税理士領域です。</p>
+        </div>
+
+        <div class="heroCard">
+          <a class="primaryBtn" href="FORM_URL" target="_blank" rel="noopener">相談内容を送る（1分）</a>
+          <p class="btnHint">内容確認後、折り返し（メール or 電話）します。</p>
+          <p class="mini">対象：足立区・草加周辺の不動産（初期フェーズはエリアを絞り、高品質に対応）</p>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="wrap">
-      <div class="card">
-        <h2>相談でできること</h2>
-        <ul>
-          <li>状況整理（名義・関係者・期限・優先順位）</li>
-          <li>選択肢の整理（売却・保有・活用・管理）</li>
-          <li>次の一手（必要書類／必要な専門家／進め方）</li>
-        </ul>
-      </div>
 
-      <div class="card">
-        <h2>対象エリア</h2>
-        <p>足立区・草加周辺の不動産を中心に対応します（初期フェーズはエリアを絞り、高品質に対応します）。</p>
-      </div>
+      <section class="section twoCol">
+        <div class="card">
+          <div class="kicker">できること</div>
+          <h3>状況整理 → 選択肢 → 次の一手まで</h3>
+          <ul class="list">
+            <li>関係者・名義・期限・優先順位の整理</li>
+            <li>売却／保有／活用／管理の選択肢整理</li>
+            <li>必要書類・必要な専門家・進め方の提案</li>
+          </ul>
+          <p class="muted">「売却ありき」ではなく、状況に合わせて整理します。</p>
+        </div>
 
-      <div class="card">
-        <h2>対応できないこと</h2>
-        <ul>
-          <li>相続税の申告や確定的な税額算定（税理士領域）</li>
-          <li>情報収集のみのご相談</li>
-        </ul>
-        <p class="muted">※ ただし「何を誰に相談すべきか」の整理は対応可能です。</p>
-      </div>
+        <div class="card">
+          <div class="kicker">できないこと</div>
+          <h3>税務申告・確定的な税額算定</h3>
+          <ul class="list">
+            <li>相続税の申告・確定申告の代行</li>
+            <li>確定的な税額算定（評価の前提が必要）</li>
+          </ul>
+          <p class="muted">ただし「税理士に何を渡すべきか」「どう進めるべきか」の整理は対応可能です。</p>
+        </div>
+      </section>
 
-      <div class="card">
-        <h2>ご相談の流れ</h2>
-        <ol>
-          <li>フォーム送信（1分）</li>
-          <li>内容確認後、折り返し（メール or 電話）</li>
-          <li>初回ヒアリング（20〜30分）</li>
-        </ol>
-      </div>
+      <section class="section">
+        <div class="grid3">
+          <div class="card">
+            <h3>相談の流れ</h3>
+            <ol class="list">
+              <li>フォーム送信（1分）</li>
+              <li>内容確認後、折り返し</li>
+              <li>初回ヒアリング（20〜30分）</li>
+            </ol>
+            <p class="muted">来店不要。電話・オンライン中心で進めます。</p>
+          </div>
+
+          <div class="card">
+            <h3>対象エリア</h3>
+            <p class="muted">足立区・草加周辺の不動産を中心に対応します。</p>
+            <p class="muted">※ エリア外は初回でお断りする場合があります（品質担保のため）。</p>
+          </div>
+
+          <div class="card">
+            <h3>運営の考え方</h3>
+            <p class="muted">最初は1人で丁寧に対応します。急拡大よりも「成約率」と「紹介」を重視します。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>よくある質問</h3>
+        <div style="display:grid; gap:10px; margin-top:10px;">
+          <details>
+            <summary>いきなり訪問されますか？</summary>
+            <p>来店・訪問は不要です。まずは電話・オンラインで状況を整理し、必要な場合のみ次の段階をご案内します。</p>
+          </details>
+          <details>
+            <summary>費用はかかりますか？</summary>
+            <p>初回は状況整理が中心です。内容に応じて、次の段階（売却・活用・管理など）をご提案します。</p>
+          </details>
+          <details>
+            <summary>相続税がいくらか教えてもらえますか？</summary>
+            <p>確定的な税額算定や申告は税理士領域です。評価や資料が揃った段階で、適切な専門家へのつなぎ方まで整理します。</p>
+          </details>
+        </div>
+      </section>
+
     </div>
   </main>
 
   <div class="cta-fixed">
     <div class="cta-row">
-      <div class="cta-sub">足立区・草加周辺｜相続×不動産の悩み相談（来店不要）</div>
+      <div class="cta-sub">足立区・草加周辺｜相続 × 不動産の悩み相談（来店不要）</div>
       <a class="cta-btn" href="FORM_URL" target="_blank" rel="noopener">相談内容を送る（1分）</a>
     </div>
   </div>
 
   <script>
-    const FORM_URL = "https://forms.gle/d1fbJhsW38UdctcPA";
+    const FORM_URL = "https://forms.gle/NMF6LejymoRhBQm79";
     document.querySelectorAll('a[href="FORM_URL"]').forEach(a => a.href = FORM_URL);
   </script>
 </body>
 </html>
+
