@@ -1,34 +1,44 @@
-
-
-
 <!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>足立区・草加｜不動産の相続相談（来店不要）</title>
-  <meta name="description" content="足立区・草加周辺｜相続に関わる不動産の悩みを“まとめ役”として整理し、司法書士・税理士と連携して解決へ。来店不要。フォーム1分／電話は留守電OK。" />
+  <title>足立区・草加｜不動産相続の悩み相談（来店不要）</title>
+  <meta name="description" content="足立区・草加周辺。不動産相続の悩みを“整理して前に進める”相談窓口。司法書士・税理士と連携し、次の一手まで導きます。フォームはページ内で完結。" />
+  <meta name="keywords" content="足立区,草加,不動産,相続,相談,空き家,共有名義,売却,管理" />
+
+  <!-- OpenGraph (SNSで見栄え) -->
+  <meta property="og:title" content="足立区・草加｜不動産相続の悩み相談（来店不要）" />
+  <meta property="og:description" content="不動産相続の悩みを“整理して前に進める”相談窓口。フォームはページ内で完結。" />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
+      /* Palette: navy + warm beige + green accent */
       --bg:#ffffff;
       --ink:#0b1220;
       --text:#0f172a;
       --muted:#475569;
       --sub:#64748b;
       --line:#e2e8f0;
-      --soft:#f7f8fb;
+      --soft:#f7f7f5;        /* warm beige-ish */
       --card:#ffffff;
 
-      --brand:#0b1220;
-      --brand2:#223a66;
-      --accent:#0ea5e9;
-      --ok:#16a34a;
+      --navy:#0b1220;
+      --navy2:#223a66;
+      --green:#16a34a;
+      --accent:#0ea5e9;      /* small accents only */
 
-      --radius: 20px;
+      --radius: 22px;
       --shadow: 0 18px 60px rgba(2,6,23,.12);
-      --shadow2: 0 10px 30px rgba(2,6,23,.10);
+      --shadow2: 0 10px 26px rgba(2,6,23,.09);
       --max: 1120px;
+
+      --h1: clamp(34px, 4.0vw, 52px);
+      --h2: 20px;
+      --p: 16px;
+
+      --lh: 1.85;           /* readability */
     }
 
     *{ box-sizing:border-box; }
@@ -40,294 +50,171 @@
       font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      line-height: 1.75;
+      line-height: var(--lh);
     }
     a{ color: inherit; text-decoration: none; }
     .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
-
-    /* ---------- Topbar ---------- */
-    .topbar{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      background: rgba(255,255,255,.86);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar .row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      padding: 12px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width: 0;
-    }
-    .mark{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 14px 34px rgba(15,23,42,.18);
-      flex: none;
-    }
-    .brandText{
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-      min-width: 0;
-    }
-    .brandName{
-      font-weight: 900;
-      letter-spacing: .01em;
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .brandSub{
-      font-size: 12px;
-      color: var(--sub);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-    }
-    .chip{
-      font-size: 12px;
-      color: var(--sub);
-      border: 1px solid var(--line);
-      background:#fff;
-      padding: 7px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-    .link{
-      font-size: 12px;
-      font-weight: 900;
-      border: 1px solid var(--line);
-      background:#fff;
-      padding: 10px 12px;
-      border-radius: 14px;
-    }
-    .link:hover{ border-color:#cbd5e1; }
-
-    @media (max-width: 860px){
-      .chip{ display:none; }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero{
-      position:relative;
-      padding: 32px 0 18px;
-      background:
-        radial-gradient(900px 520px at 18% 10%, rgba(14,165,233,.16), rgba(14,165,233,0) 60%),
-        radial-gradient(900px 520px at 80% 0%, rgba(99,102,241,.14), rgba(99,102,241,0) 55%),
-        linear-gradient(180deg, #ffffff 0%, #f7f9ff 60%, #ffffff 100%);
-      border-bottom: 1px solid var(--line);
-      overflow:hidden;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
-      align-items: start;
-    }
-    @media (max-width: 980px){
-      .heroGrid{ grid-template-columns:1fr; }
-    }
-
-    .kickerRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.9);
-      font-size: 12px;
-      font-weight: 900;
-      color: var(--ink);
+    .muted{ color: var(--muted); }
+    .sub{ color: var(--sub); }
+    .small{ font-size: 12px; color: var(--sub); line-height: 1.8; }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255,255,255,.9);
+      font-size: 12px; font-weight: 900; color: var(--ink);
       box-shadow: 0 10px 24px rgba(2,6,23,.06);
+      white-space: nowrap;
     }
-    .kdot{
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
+    .dot{ width: 8px; height: 8px; border-radius:50%; background: var(--green); box-shadow: 0 0 0 4px rgba(22,163,74,.10); }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 15px 16px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color:#fff; font-weight: 900; letter-spacing:.01em; font-size: 15px;
+      box-shadow: 0 18px 40px rgba(15,23,42,.20);
+      border: 0;
     }
+    .btn:hover{ filter: brightness(1.04); }
+    .btnAlt{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 14px 16px; border-radius: 16px;
+      background:#fff; border: 1px solid var(--line);
+      color: var(--ink); font-weight: 900; font-size: 14px;
+    }
+    .btnAlt:hover{ border-color:#cbd5e1; }
+    .btnRow{ display:grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
 
-    .h1{
-      font-size: clamp(30px, 3.4vw, 44px);
-      line-height: 1.16;
-      margin: 0 0 10px;
-      letter-spacing: .01em;
-    }
-    .lead{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 60ch;
-    }
-    .lead strong{ color: var(--text); }
-
-    .bullets{
-      display:grid;
-      gap: 10px;
-      margin-top: 14px;
-      max-width: 62ch;
-    }
-    .bullet{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.9);
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 28px rgba(2,6,23,.06);
-    }
-    .bicon{
-      width: 20px;
-      height: 20px;
-      border-radius: 7px;
-      background: rgba(22,163,74,.12);
-      border: 1px solid rgba(22,163,74,.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex:none;
-      margin-top: 2px;
-    }
-    .bicon i{
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--ok);
-      display:block;
-    }
-    .btxt{
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .btxt b{ color: var(--text); }
-
-    /* ---------- Cards ---------- */
     .card{
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .pad{ padding: 18px; }
-
-    .ctaTitle{
-      font-weight: 900;
-      letter-spacing: .01em;
-      margin: 0 0 8px;
-      font-size: 14px;
-      color: var(--ink);
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      padding: 15px 16px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#fff;
-      font-weight: 900;
-      font-size: 15px;
-      letter-spacing: .01em;
-      box-shadow: 0 18px 40px rgba(15,23,42,.20);
-    }
-    .btn:hover{ filter: brightness(1.03); }
-    .btnAlt{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      padding: 13px 16px;
-      border-radius: 16px;
+    .pad{ padding: 20px; }
+    .section{ margin: 30px 0; }
+    .h2{ font-size: var(--h2); font-weight: 900; letter-spacing:.01em; margin: 0 0 14px; }
+    .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    @media (max-width: 980px){ .grid3{ grid-template-columns: 1fr; } }
+    .mini{
       background:#fff;
       border: 1px solid var(--line);
-      color: var(--ink);
-      font-weight: 900;
-      font-size: 14px;
-    }
-    .btnAlt:hover{ border-color:#cbd5e1; }
-
-    .btnRow{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .small{
-      margin: 10px 0 0;
-      color: var(--sub);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .trustBox{
-      margin-top: 14px;
-      display:grid;
-      gap: 10px;
-    }
-    .trust{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 12px 14px;
-      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
       box-shadow: var(--shadow2);
     }
-    .trustTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 6px;
+    .mini h3{ margin: 0 0 8px; font-size: 14px; font-weight: 900; }
+    .mini p{ margin: 0; font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .icon{
+      width: 34px; height: 34px; border-radius: 14px;
+      background: rgba(22,163,74,.10);
+      border: 1px solid rgba(22,163,74,.20);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom: 10px;
     }
-    .trustTitle{
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing: .01em;
+    .icon svg{ width: 18px; height: 18px; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky; top:0; z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
     }
-    .trustBadge{
-      font-size: 11px;
-      color: var(--sub);
-      background: var(--soft);
-      border: 1px solid var(--line);
-      padding: 5px 8px;
-      border-radius: 999px;
-      white-space: nowrap;
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px; padding: 12px 0;
     }
-    .trustDesc{
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
+    .brand{
+      display:flex; align-items:center; gap: 12px; min-width:0;
+    }
+    .mark{
+      width: 38px; height: 38px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      box-shadow: 0 14px 34px rgba(15,23,42,.16);
+      display:flex; align-items:center; justify-content:center;
+      flex:none;
+    }
+    .mark svg{ width: 18px; height:18px; opacity: .95; }
+    .brandText{ display:flex; flex-direction:column; gap: 2px; min-width:0; }
+    .brandName{
+      font-weight: 1000;
+      letter-spacing: .02em;
+      font-size: 15px;
+      white-space: nowrap; overflow:hidden; text-overflow: ellipsis;
+    }
+    .brandSub{
+      font-size: 12px; color: var(--sub);
+      white-space: nowrap; overflow:hidden; text-overflow: ellipsis;
+    }
+    .nav{ display:flex; align-items:center; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
+    .chip{
+      font-size: 12px; color: var(--sub);
+      border: 1px solid var(--line); background:#fff;
+      padding: 7px 10px; border-radius: 999px; white-space:nowrap;
+    }
+    .link{
+      font-size: 12px; font-weight: 900;
+      border: 1px solid var(--line); background:#fff;
+      padding: 10px 12px; border-radius: 14px;
+    }
+    @media (max-width: 860px){
+      .chip{ display:none; }
     }
 
-    /* ---------- Visual (inline “generated” illustration) ---------- */
+    /* Hero */
+    .hero{
+      position:relative;
+      padding: 36px 0 22px;
+      background:
+        radial-gradient(900px 520px at 18% 10%, rgba(22,163,74,.12), rgba(22,163,74,0) 60%),
+        radial-gradient(900px 520px at 80% 0%, rgba(14,165,233,.10), rgba(14,165,233,0) 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--soft) 62%, #ffffff 100%);
+      border-bottom: 1px solid var(--line);
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap: 22px; align-items:start;
+    }
+    @media (max-width: 980px){ .heroGrid{ grid-template-columns:1fr; } }
+
+    .kickerRow{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 14px; }
+    .h1{
+      font-size: var(--h1);
+      line-height: 1.12;
+      margin: 0 0 12px;
+      letter-spacing: .01em;
+      color: var(--ink);
+      text-shadow: 0 1px 0 rgba(255,255,255,.65);
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: var(--p);
+      max-width: 62ch;
+    }
+    .lead strong{ color: var(--text); font-weight: 1000; }
+
+    .bullets{ display:grid; gap: 12px; margin-top: 16px; max-width: 64ch; }
+    .bullet{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(2,6,23,.06);
+    }
+    .bicon{
+      width: 34px; height: 34px; border-radius: 14px;
+      background: rgba(22,163,74,.10);
+      border: 1px solid rgba(22,163,74,.22);
+      display:flex; align-items:center; justify-content:center; flex:none;
+      margin-top: 1px;
+    }
+    .bicon svg{ width: 18px; height: 18px; }
+    .btxt{ font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .btxt b{ color: var(--text); font-weight: 1000; }
+
+    /* Hero Visual: premium illustration (no external images) */
     .visual{
       border-radius: var(--radius);
       overflow:hidden;
@@ -336,109 +223,121 @@
       box-shadow: var(--shadow);
     }
     .visualWrap{
-      position: relative;
-      padding: 16px;
+      padding: 18px;
       background:
-        radial-gradient(520px 280px at 20% 20%, rgba(14,165,233,.18), rgba(14,165,233,0) 62%),
-        radial-gradient(520px 280px at 85% 30%, rgba(99,102,241,.16), rgba(99,102,241,0) 62%),
+        radial-gradient(520px 280px at 20% 20%, rgba(22,163,74,.14), rgba(22,163,74,0) 62%),
+        radial-gradient(520px 280px at 85% 30%, rgba(14,165,233,.10), rgba(14,165,233,0) 62%),
         linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
-    .visualNote{
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--sub);
-    }
 
-    /* ---------- Main sections ---------- */
-    main{ padding: 26px 0 120px; } /* fixed CTA space */
-    .section{ margin: 22px 0; }
-    .h2{
-      margin: 0 0 12px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: .01em;
+    /* Step diagram */
+    .steps{
+      display:grid; grid-template-columns: repeat(3,1fr); gap: 14px;
+      align-items: stretch;
     }
-    .grid3{
-      display:grid;
-      gap: 12px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 980px){
-      .grid3{ grid-template-columns: 1fr; }
-    }
-    .mini{
+    @media (max-width: 980px){ .steps{ grid-template-columns: 1fr; } }
+    .step{
+      position:relative;
       background:#fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 18px;
       box-shadow: var(--shadow2);
     }
-    .mini h3{
-      margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: .01em;
+    .stepNum{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 36px; height: 36px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      color:#fff; font-weight: 1000; font-size: 14px;
+      margin-bottom: 10px;
     }
-    .mini p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
+    .step h3{ margin:0 0 6px; font-size: 14px; font-weight: 1000; }
+    .step p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.75; }
+    .arrow{
+      position:absolute; top: 50%; right: -18px; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: var(--shadow2);
+    }
+    @media (max-width: 980px){ .arrow{ display:none; } }
+
+    /* Case studies */
+    .caseTitle{ display:flex; gap:10px; align-items:center; margin-bottom: 8px; }
+    .caseBadge{
+      font-size: 11px; color: var(--sub);
+      background: var(--soft); border: 1px solid var(--line);
+      padding: 5px 9px; border-radius: 999px; white-space: nowrap;
     }
 
-    /* ---------- FAQ ---------- */
+    /* Profile (no real photo) */
+    .profileGrid{
+      display:grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items:start;
+    }
+    @media (max-width: 980px){ .profileGrid{ grid-template-columns:1fr; } }
+    .avatar{
+      width: 74px; height: 74px; border-radius: 26px;
+      background: linear-gradient(135deg, rgba(11,18,32,.95), rgba(34,58,102,.92));
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 18px 46px rgba(2,6,23,.18);
+      border: 1px solid rgba(255,255,255,.20);
+    }
+    .avatar svg{ width: 34px; height:34px; opacity: .95; }
+    .profileTop{ display:flex; gap: 14px; align-items:center; margin-bottom: 10px; }
+    .profileName{ font-weight: 1000; font-size: 14px; }
+    .profileMeta{ font-size: 12px; color: var(--sub); line-height: 1.7; }
+
+    /* Embedded form */
+    .formWrap{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background:#fff;
+    }
+    .formBar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.95);
+    }
+    .formBar b{ font-size: 14px; }
+    iframe{ width:100%; border:0; height: 820px; }
+    @media (max-width: 520px){
+      iframe{ height: 980px; }
+    }
+
+    /* FAQ */
     details{
       background:#fff;
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 12px 14px;
       box-shadow: var(--shadow2);
     }
-    summary{
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 14px;
-    }
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
-    }
+    summary{ cursor:pointer; font-weight: 1000; font-size: 14px; }
+    details p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height:1.85; }
 
-    /* ---------- Footer ---------- */
+    /* Footer */
     footer{
-      background: #0b1220;
+      background: var(--navy);
       color: rgba(255,255,255,.88);
-      padding: 30px 0 28px;
+      padding: 32px 0 28px;
     }
     footer .cols{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      align-items:start;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap: 14px;
     }
-    @media (max-width: 980px){
-      footer .cols{ grid-template-columns: 1fr; }
-    }
-    footer .fName{
-      font-weight: 900;
-      letter-spacing: .01em;
-      font-size: 14px;
-    }
-    footer .fText{
-      margin-top: 10px;
-      font-size: 12px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.8;
-    }
+    @media (max-width: 980px){ footer .cols{ grid-template-columns:1fr; } }
+    footer .fName{ font-weight: 1000; letter-spacing:.01em; font-size: 14px; }
+    footer .fText{ margin-top: 10px; font-size: 12px; color: rgba(255,255,255,.72); line-height: 1.9; }
 
-    /* ---------- Fixed CTA ---------- */
+    /* Fixed CTA */
     .ctaFixed{
       position: fixed;
       left: 0; right: 0; bottom: 0;
       z-index: 80;
-      background: rgba(255,255,255,.90);
+      background: rgba(255,255,255,.92);
       backdrop-filter: blur(12px);
       border-top: 1px solid var(--line);
       padding: 10px 12px;
@@ -458,193 +357,206 @@
       overflow:hidden;
       text-overflow: ellipsis;
     }
-    @media (max-width: 760px){
-      .ctaText{ display:none; }
-    }
+    @media (max-width: 760px){ .ctaText{ display:none; } }
     .ctaCall{
       width: 34%;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 14px 14px;
-      border-radius: 16px;
-      background:#fff;
-      border: 1px solid var(--line);
-      font-weight: 900;
-      font-size: 14px;
-      white-space: nowrap;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 14px 14px; border-radius: 16px;
+      background:#fff; border: 1px solid var(--line);
+      font-weight: 1000; font-size: 14px; white-space: nowrap;
     }
     .ctaMain{
       flex: 1;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 14px 14px;
-      border-radius: 16px;
-      background: #0b1220;
-      color:#fff;
-      font-weight: 900;
-      font-size: 14px;
-      white-space: nowrap;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 14px 14px; border-radius: 16px;
+      background: var(--navy); color:#fff;
+      font-weight: 1000; font-size: 14px; white-space: nowrap;
     }
+
+    /* spacing helpers */
+    .mt8{ margin-top: 8px; }
+    .mt12{ margin-top: 12px; }
+    .mt16{ margin-top: 16px; }
+    .mt22{ margin-top: 22px; }
+    .mt28{ margin-top: 28px; }
+
+    /* Keep content away from fixed CTA */
+    main{ padding: 26px 0 132px; }
   </style>
 </head>
 
 <body>
+  <!-- Topbar -->
   <div class="topbar">
     <div class="wrap">
       <div class="row">
         <a class="brand" href="#">
-          <div class="mark" aria-hidden="true"></div>
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 11.5 12 5l8 6.5V20a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 20v-8.5Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M9.5 21v-7.2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V21" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <div class="brandText">
-            <div class="brandName" id="SERVICE_NAME">不動産相続窓口〇〇（仮）</div>
+            <div class="brandName" id="SERVICE_NAME">不動産相続窓口〇〇</div>
             <div class="brandSub"><span id="AREA">足立区・草加周辺</span>｜来店不要（電話・オンライン）</div>
           </div>
         </a>
 
         <div class="nav">
           <span class="chip">司法書士・税理士と連携</span>
-          <span class="chip">“まとめ役”として伴走</span>
+          <span class="chip">“まとめ役”として整理します</span>
+          <a class="link" href="#form">無料相談</a>
           <a class="link" href="#faq">FAQ</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Hero -->
   <header class="hero">
     <div class="wrap">
       <div class="heroGrid">
 
+        <!-- Left -->
         <div>
           <div class="kickerRow">
-            <div class="kicker"><span class="kdot"></span>相続に関わる不動産の悩み相談</div>
-            <div class="kicker"><span class="kdot"></span>足立区・草加周辺に特化</div>
-            <div class="kicker"><span class="kdot"></span>フォーム1分で受付</div>
+            <span class="pill"><span class="dot"></span>相続に関わる不動産の悩み相談</span>
+            <span class="pill"><span class="dot"></span>足立区・草加に特化</span>
+            <span class="pill"><span class="dot"></span>ページ内で完結</span>
           </div>
 
           <h1 class="h1">家や土地のこと、<br>ひとりで抱えていませんか</h1>
 
           <p class="lead">
-            相続の悩みは、<strong>名義・家族・税金・手続き</strong>が絡んで止まりがち。<br>
-            私が<strong>窓口（まとめ役）</strong>となり、必要に応じて<strong>司法書士・税理士</strong>と連携して、解決までの道筋を整えます。
+            相続の悩みは、<strong>名義・家族・税金・手続き</strong>が絡んで止まりがちです。<br>
+            この窓口では、まず<strong>状況を整理</strong>し、次の一手を<strong>具体化</strong>します。必要に応じて<strong>司法書士・税理士</strong>と連携し、ワンチームで解決へ進めます。
           </p>
 
           <div class="bullets">
             <div class="bullet">
-              <div class="bicon"><i></i></div>
-              <div class="btxt"><b>初回は「状況整理」</b>（関係者・名義・期限・優先順位）から。ムダな遠回りを減らします。</div>
+              <div class="bicon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7h10M7 12h10M7 17h7" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="btxt"><b>整理します</b>：関係者・名義・期限・優先順位を短時間で整理します。</div>
             </div>
             <div class="bullet">
-              <div class="bicon"><i></i></div>
-              <div class="btxt"><b>来店不要</b>。電話・オンライン中心で進行（必要な場合のみ次の段階をご案内）。</div>
+              <div class="bicon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3v18M3 12h18" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="btxt"><b>選択肢を提示します</b>：売る／持つ／貸すの判断軸を示します。</div>
             </div>
             <div class="bullet">
-              <div class="bicon"><i></i></div>
-              <div class="btxt"><b>足立区在住30年</b>。地域の事情も踏まえて整理します。</div>
+              <div class="bicon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12l4 4L19 6" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="btxt"><b>次の一手へ進めます</b>：必要書類・依頼先・進め方を具体化します。</div>
             </div>
+          </div>
+
+          <div class="btnRow mt16">
+            <a class="btn" href="#form">【無料】まずは状況を整理してみる</a>
+            <a class="btnAlt" id="TEL_BTN_TOP" href="tel:03-XXXX-XXXX">電話で相談する（留守電OK）</a>
+          </div>
+
+          <div class="small mt8">
+            ※ 来店不要。お忙しい方は夜間の折り返し対応も可能です。<br>
+            ※ 相続税の確定算定・申告は税理士領域です（必要に応じて連携します）。
           </div>
         </div>
 
+        <!-- Right -->
         <div>
           <div class="visual">
             <div class="visualWrap">
-              <!-- Inline “generated-like” illustration (no external assets) -->
-              <svg viewBox="0 0 860 420" width="100%" height="auto" aria-label="家と川の抽象イラスト">
+              <!-- Premium illustration: warm family + specialist abstract (no external assets) -->
+              <svg viewBox="0 0 880 520" width="100%" height="auto" aria-label="温かみのある相談イラスト（抽象）">
                 <defs>
-                  <linearGradient id="g1" x1="0" x2="1">
+                  <linearGradient id="n1" x1="0" x2="1">
                     <stop offset="0" stop-color="#0b1220"/>
                     <stop offset="1" stop-color="#223a66"/>
                   </linearGradient>
-                  <linearGradient id="g2" x1="0" x2="1">
-                    <stop offset="0" stop-color="#0ea5e9" stop-opacity=".20"/>
-                    <stop offset="1" stop-color="#6366f1" stop-opacity=".18"/>
+                  <linearGradient id="w1" x1="0" x2="1">
+                    <stop offset="0" stop-color="#16a34a" stop-opacity=".18"/>
+                    <stop offset="1" stop-color="#0ea5e9" stop-opacity=".12"/>
                   </linearGradient>
-                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b1220" flood-opacity=".12"/>
+                  <filter id="sd" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0b1220" flood-opacity=".12"/>
                   </filter>
                 </defs>
 
-                <!-- soft background blobs -->
-                <path d="M85,120 C140,40 280,30 350,90 C410,140 420,220 360,280 C290,350 150,340 90,260 C50,210 45,165 85,120Z" fill="url(#g2)"/>
-                <path d="M560,70 C640,20 770,40 805,135 C835,220 780,300 700,320 C610,342 520,305 495,230 C470,160 500,105 560,70Z" fill="url(#g2)"/>
+                <!-- soft blobs -->
+                <path d="M70,160 C160,40 330,50 390,150 C450,250 380,340 270,365 C165,388 80,320 55,245 C40,202 45,180 70,160Z" fill="url(#w1)"/>
+                <path d="M560,70 C660,20 800,60 835,170 C870,285 770,365 660,350 C560,338 500,270 505,190 C510,120 525,90 560,70Z" fill="url(#w1)"/>
 
-                <!-- river -->
-                <path d="M0,300 C170,250 260,360 420,330 C560,305 630,250 860,290 L860,420 L0,420 Z"
-                      fill="#0ea5e9" opacity=".10"/>
-                <path d="M0,320 C190,285 255,390 430,355 C590,323 655,270 860,305"
-                      fill="none" stroke="#0ea5e9" stroke-opacity=".35" stroke-width="8" stroke-linecap="round"/>
+                <!-- main card -->
+                <g filter="url(#sd)">
+                  <rect x="110" y="120" width="660" height="280" rx="28" fill="#ffffff" stroke="#e2e8f0"/>
+                  <text x="150" y="178" font-size="28" font-weight="800" fill="#0f172a">不動産の相続</text>
+                  <text x="150" y="212" font-size="16" fill="#64748b">最初に“状況を整理”して、次の一手まで導きます</text>
 
-                <!-- house card -->
-                <g filter="url(#shadow)">
-                  <rect x="140" y="120" width="580" height="220" rx="26" fill="#ffffff" stroke="#e2e8f0"/>
-                  <path d="M260,210 L360,140 L460,210" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="280" y="210" width="160" height="110" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
-                  <rect x="470" y="195" width="150" height="125" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
-                  <rect x="310" y="240" width="55" height="80" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
-                  <circle cx="545" cy="245" r="18" fill="#0ea5e9" opacity=".20"/>
-                  <circle cx="585" cy="280" r="12" fill="#6366f1" opacity=".18"/>
+                  <!-- icons row -->
+                  <g transform="translate(150,245)">
+                    <rect x="0" y="0" width="150" height="110" rx="18" fill="#f7f7f5" stroke="#e2e8f0"/>
+                    <text x="20" y="36" font-size="14" font-weight="800" fill="#0f172a">整理</text>
+                    <path d="M20 60h110M20 80h90" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
 
-                  <text x="170" y="165" font-size="22" font-weight="800" fill="#0f172a">相続 × 不動産</text>
-                  <text x="170" y="195" font-size="14" fill="#64748b">“まとめ役”として整理し、次の一手まで</text>
+                    <rect x="180" y="0" width="150" height="110" rx="18" fill="#f7f7f5" stroke="#e2e8f0"/>
+                    <text x="200" y="36" font-size="14" font-weight="800" fill="#0f172a">選択肢</text>
+                    <circle cx="230" cy="78" r="18" fill="#16a34a" opacity=".18"/>
+                    <circle cx="270" cy="78" r="12" fill="#0ea5e9" opacity=".12"/>
+                    <circle cx="300" cy="78" r="8" fill="#223a66" opacity=".18"/>
+
+                    <rect x="360" y="0" width="240" height="110" rx="18" fill="#f7f7f5" stroke="#e2e8f0"/>
+                    <text x="380" y="36" font-size="14" font-weight="800" fill="#0f172a">ワンチーム</text>
+                    <path d="M390 78c0-16 14-28 31-28s31 12 31 28" fill="none" stroke="url(#n1)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M470 78c0-16 14-28 31-28s31 12 31 28" fill="none" stroke="url(#n1)" stroke-width="6" stroke-linecap="round"/>
+                  </g>
+
+                  <!-- bottom note -->
+                  <text x="150" y="385" font-size="13" fill="#64748b">来店不要／足立区・草加周辺に特化（品質優先）</text>
                 </g>
               </svg>
-
-              <div class="visualNote">
-                ※イメージ図（外部画像なしで表示／読み込みが速い設計）
-              </div>
             </div>
           </div>
 
-          <div class="card" style="margin-top:12px;">
+          <div class="card mt12">
             <div class="pad">
-              <div class="ctaTitle">まずは状況を送る（1分）</div>
-              <div class="btnRow">
-                <a class="btn" href="FORM_URL" target="_blank" rel="noopener" id="FORM_BTN_TOP">相談内容を送る</a>
-                <a class="btnAlt" href="tel:03-XXXX-XXXX" id="TEL_BTN_TOP">電話で相談する（留守電OK）</a>
-              </div>
-              <div class="small">
-                お電話は留守電になる場合があります。<br>
-                内容確認後、折り返します（売却ありきの提案はしません）。
-              </div>
-
-              <div class="trustBox">
-                <div class="trust">
-                  <div class="trustTop">
-                    <div class="trustTitle">対象エリア</div>
-                    <div class="trustBadge">品質重視で絞ります</div>
+              <div style="font-weight:1000;font-size:14px;">安心材料（実写なしでも信頼を担保）</div>
+              <div class="grid3 mt12" style="grid-template-columns:1fr;gap:10px;">
+                <div class="mini" style="padding:14px;">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;">
+                    <b style="font-size:13px;">対象エリア</b><span class="caseBadge">絞って品質を担保</span>
                   </div>
-                  <div class="trustDesc"><span id="AREA2">足立区・草加周辺</span>（まずは近距離で確実に対応する方針）</div>
+                  <div class="sub mt8"><span id="AREA2">足立区・草加周辺</span></div>
                 </div>
-
-                <div class="trust">
-                  <div class="trustTop">
-                    <div class="trustTitle">ワンチーム対応</div>
-                    <div class="trustBadge">相談の“窓口”</div>
+                <div class="mini" style="padding:14px;">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;">
+                    <b style="font-size:13px;">連携</b><span class="caseBadge">司法書士・税理士</span>
                   </div>
-                  <div class="trustDesc">私がまとめ役となり、必要に応じて司法書士・税理士と連携して進めます。</div>
+                  <div class="sub mt8">あなたは窓口とやり取りするだけ。必要に応じて連携します。</div>
                 </div>
-
-                <div class="trust">
-                  <div class="trustTop">
-                    <div class="trustTitle">足立区在住30年</div>
-                    <div class="trustBadge">地域目線</div>
+                <div class="mini" style="padding:14px;">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;">
+                    <b style="font-size:13px;">地域</b><span class="caseBadge">足立区在住30年</span>
                   </div>
-                  <div class="trustDesc">地域の事情も踏まえ、進め方を整理します。</div>
-                </div>
-
-                <div class="trust">
-                  <div class="trustTop">
-                    <div class="trustTitle">宅建業免許</div>
-                    <div class="trustBadge">取得予定</div>
-                  </div>
-                  <div class="trustDesc">免許番号は取得後に掲載します（準備中）。</div>
+                  <div class="sub mt8">地域の事情を踏まえて、判断材料を整理します。</div>
                 </div>
               </div>
 
+              <div class="small mt12">
+                ※ 宅建業免許は取得後に番号を掲載します（仮番号の掲載は行いません）。
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </header>
@@ -652,58 +564,217 @@
   <main>
     <div class="wrap">
 
+      <!-- What we handle -->
       <section class="section">
-        <div class="h2">できること（相談で扱う範囲）</div>
+        <div class="h2">こんな悩みでご相談ください</div>
         <div class="grid3">
           <div class="mini">
-            <h3>① 状況整理</h3>
-            <p>関係者・名義・期限・優先順位を整理し、いま何を決めるべきかを明確にします。</p>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 19h16M7 19V9l5-4 5 4v10" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>空き家・放置</h3>
+            <p>相続した家がそのまま。管理や処分の判断がつかない。</p>
           </div>
           <div class="mini">
-            <h3>② 選択肢の提示</h3>
-            <p>売却／保有／活用の選択肢と判断軸を、短く分かりやすく整理します。</p>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 12a4 4 0 1 1 8 0" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5 21c1.5-4 12.5-4 14 0" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>親族間で進まない</h3>
+            <p>共有名義・意見の違いで話が止まっている。</p>
           </div>
           <div class="mini">
-            <h3>③ 次の一手</h3>
-            <p>必要書類・誰に何を依頼するか・次にやることを具体化します。</p>
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 7h12M6 12h12M6 17h8" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>何から始めるか不明</h3>
+            <p>書類・手続き・相談先がわからず不安。</p>
           </div>
         </div>
       </section>
 
+      <!-- Role -->
       <section class="section">
-        <div class="h2">相談の流れ</div>
+        <div class="h2">この窓口がやること</div>
         <div class="grid3">
-          <div class="mini"><h3>Step 1</h3><p>フォーム送信（1分）</p></div>
-          <div class="mini"><h3>Step 2</h3><p>内容確認 → 折り返し</p></div>
-          <div class="mini"><h3>Step 3</h3><p>初回ヒアリング（20〜30分）</p></div>
-        </div>
-        <div class="small" style="margin-top:10px;">
-          ※ 相続税の確定的な算定・申告は税理士領域です。こちらでは「必要情報の整理」まで対応し、連携して進めます。
+          <div class="mini">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 6h10M7 12h10M7 18h7" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>状況を整理します</h3>
+            <p>関係者・名義・期限・優先順位を整理し、論点を明確にします。</p>
+          </div>
+          <div class="mini">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 4v16M4 12h16" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>選択肢を提示します</h3>
+            <p>売る／持つ／貸すの判断軸を示し、次の一手を提案します。</p>
+          </div>
+          <div class="mini">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l4 4L19 6" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>連携して前に進めます</h3>
+            <p>必要に応じて司法書士・税理士と連携し、手続きを進めます。</p>
+          </div>
         </div>
       </section>
 
+      <!-- Steps diagram -->
+      <section class="section">
+        <div class="h2">相談の流れ（1→2→3）</div>
+        <div class="steps">
+          <div class="step">
+            <div class="stepNum">1</div>
+            <h3>ヒアリング（無料）</h3>
+            <p>フォーム内容を確認し、必要事項を短く確認します。</p>
+            <div class="arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path d="M8 5l8 7-8 7" stroke="#0b1220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepNum">2</div>
+            <h3>整理・方向性の共有</h3>
+            <p>論点と優先順位を整理し、進め方（次の一手）を提示します。</p>
+            <div class="arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                <path d="M8 5l8 7-8 7" stroke="#0b1220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepNum">3</div>
+            <h3>必要に応じて連携</h3>
+            <p>司法書士・税理士等と連携し、解決まで進めます。</p>
+          </div>
+        </div>
+        <div class="small mt12">
+          ※ 「税額の確定」や「申告」は税理士領域です。こちらでは必要情報を整理し、連携して進めます。
+        </div>
+      </section>
+
+      <!-- Case studies -->
+      <section class="section">
+        <div class="h2">解決イメージ（事例）</div>
+        <div class="grid3">
+          <div class="mini">
+            <div class="caseTitle">
+              <b style="font-size:14px;">空き家を整理 → 売却へ</b>
+              <span class="caseBadge">空き家</span>
+            </div>
+            <p>放置状態の家を「何が障害か」整理し、売却に向けて動ける状態にします。親族間の不安も抑えます。</p>
+          </div>
+          <div class="mini">
+            <div class="caseTitle">
+              <b style="font-size:14px;">共有名義を整理 → トラブル回避</b>
+              <span class="caseBadge">共有</span>
+            </div>
+            <p>関係者と論点を整理し、進め方を明確にします。揉めやすい点は先に潰して進めます。</p>
+          </div>
+          <div class="mini">
+            <div class="caseTitle">
+              <b style="font-size:14px;">何から？を整理 → 次の一手へ</b>
+              <span class="caseBadge">初動</span>
+            </div>
+            <p>必要書類・相談先・優先順位を整理し、「まず何をするか」が決まる状態にします。</p>
+          </div>
+        </div>
+        <div class="small mt12">
+          ※ 事例は典型パターンのイメージです。個別事情により進め方は変わります。
+        </div>
+      </section>
+
+      <!-- Profile (no photo) -->
+      <section class="section">
+        <div class="h2">運営者・対応方針</div>
+        <div class="profileGrid">
+          <div class="mini">
+            <div class="profileTop">
+              <div class="avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="white" stroke-width="2"/>
+                  <path d="M4.5 21c1.8-4 13.2-4 15 0" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="profileName">担当者（足立区在住30年）</div>
+                <div class="profileMeta">
+                  不動産相続の悩みを「整理する窓口」として対応します。<br>
+                  必要に応じて司法書士・税理士と連携し、解決まで進めます。
+                </div>
+              </div>
+            </div>
+            <div class="small">
+              ※ 顔写真・実名は準備が整い次第掲載します。現時点では品質担保のため、対象エリアを絞って対応します。
+            </div>
+          </div>
+
+          <div class="mini">
+            <b style="font-size:14px;">お約束（信頼のために明文化します）</b>
+            <ul class="small mt12" style="margin:0; padding-left: 18px;">
+              <li>売却ありきの提案はしません（判断材料を整理します）</li>
+              <li>対応範囲を明確にします（できないことは無理に受けません）</li>
+              <li>税務申告・確定税額算定は税理士領域です（連携します）</li>
+              <li>来店不要。電話・オンライン中心で進めます</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Embedded form -->
+      <section class="section" id="form">
+        <div class="h2">【無料】相談フォーム（ページ内で完結）</div>
+        <div class="formWrap">
+          <div class="formBar">
+            <b>まずは状況を整理してみる（1〜2分）</b>
+            <span class="small">送信後、内容を確認して折り返します</span>
+          </div>
+          <!-- Google Form embed: using /viewform?embedded=true -->
+          <iframe id="FORM_IFRAME" src="https://docs.google.com/forms/d/e/REPLACE_ME/viewform?embedded=true">読み込んでいます…</iframe>
+        </div>
+        <div class="small mt12">
+          ※ フォームが表示されない場合は、下のボタンから開けます。<br>
+          <a class="btnAlt" id="FORM_FALLBACK" href="#" target="_blank" rel="noopener">フォームを別タブで開く</a>
+        </div>
+      </section>
+
+      <!-- FAQ -->
       <section class="section" id="faq">
         <div class="h2">よくある質問</div>
-        <div style="display:grid; gap: 10px;">
+        <div style="display:grid; gap: 12px;">
           <details>
             <summary>訪問・来店は必要ですか？</summary>
             <p>基本は不要です。電話・オンライン中心で進めます（必要な場合のみ次の段階をご案内します）。</p>
           </details>
           <details>
-            <summary>司法書士・税理士に直接相談した方が早いのでは？</summary>
-            <p>もちろん可能です。ただ相続は「何をどこまで用意して、誰に何を聞くか」で詰まりやすいので、先に状況整理をすると相談効率が上がります。必要に応じて連携して進めます。</p>
+            <summary>相続税がいくらか、その場で答えられますか？</summary>
+            <p>確定的な税額算定・申告は税理士領域です。こちらでは、評価に必要な情報と、税理士に渡すべき資料を整理します。</p>
           </details>
           <details>
             <summary>対象エリア外でも相談できますか？</summary>
             <p>品質担保のため、まずは足立区・草加周辺を中心に対応します。内容により初回でお断りする場合があります。</p>
           </details>
           <details>
-            <summary>費用はかかりますか？</summary>
-            <p>初回は状況整理が中心です。内容に応じて、次の段階（売却・活用・管理など）をご提案します。</p>
+            <summary>電話に出てもらえますか？</summary>
+            <p>状況により留守電になる場合があります。メッセージを残していただければ折り返します。</p>
           </details>
         </div>
       </section>
-
     </div>
   </main>
 
@@ -711,15 +782,16 @@
     <div class="wrap">
       <div class="cols">
         <div>
-          <div class="fName" id="SERVICE_NAME_F">不動産相続窓口〇〇（仮）</div>
+          <div class="fName" id="FOOTER_NAME">不動産相続窓口〇〇</div>
           <div class="fText">
             対象：<span id="AREA_F">足立区・草加周辺</span>／来店不要（電話・オンライン）<br>
-            ※ 本ページは相談窓口です。個別事情により対応可否が変わる場合があります。
+            ※ 本ページは相談窓口です。個別事情により対応可否が変わる場合があります。<br>
+            ※ 宅建業免許は取得後に番号を掲載します。
           </div>
         </div>
         <div>
           <div class="fText">
-            お問い合わせ：フォームまたは電話（留守電OK）<br>
+            お問い合わせ：フォーム（ページ内）または電話（留守電OK）<br>
             TEL：<span id="TEL_F">03-XXXX-XXXX</span>
           </div>
         </div>
@@ -727,39 +799,45 @@
     </div>
   </footer>
 
+  <!-- Fixed CTA -->
   <div class="ctaFixed">
     <div class="ctaRow">
-      <div class="ctaText"><span id="AREA_CTA">足立区・草加周辺</span>｜相続に関わる不動産の悩み相談（来店不要）</div>
-      <a class="ctaCall" href="tel:03-XXXX-XXXX" id="TEL_BTN">電話</a>
-      <a class="ctaMain" href="FORM_URL" target="_blank" rel="noopener" id="FORM_BTN">フォーム（1分）</a>
+      <div class="ctaText"><span id="AREA_CTA">足立区・草加周辺</span>｜不動産相続の悩みを整理して前に進めます</div>
+      <a class="ctaCall" id="TEL_BTN" href="tel:03-XXXX-XXXX">電話</a>
+      <a class="ctaMain" href="#form">【無料】状況を整理する</a>
     </div>
   </div>
 
   <script>
     // =========================
-    // CONFIG（ここだけ変えればOK）
+    // CONFIG（ここだけ変更）
     // =========================
-    const FORM_URL = "https://forms.gle/7135UfEo9HDZoMVw7";
-    const TEL = "03-XXXX-XXXX";                 // 仮でOK
-    const SERVICE_NAME = "不動産相続窓口〇〇（仮）";
+    const SERVICE_NAME = "不動産相続窓口〇〇";      // サービス名（仮でもOK）
     const AREA = "足立区・草加周辺";
+    const TEL = "03-XXXX-XXXX";                    // 仮でOK
+    const FORM_SHORT = "https://forms.gle/7135UfEo9HDZoMVw7";
 
-    // リンク反映
-    document.querySelectorAll('a[href="FORM_URL"]').forEach(a => a.href = FORM_URL);
+    // Googleフォーム埋め込みURLを自動生成（※短縮URLからはembedにできないので、手動で差し替え推奨）
+    // 1) FORM_SHORTを開く → アドレスバーの長いURL（forms/d/e/...）をコピー
+    // 2) 下の FORM_EMBED の REPLACE_ME を差し替え
+    const FORM_EMBED = "https://docs.google.com/forms/d/e/REPLACE_ME/viewform?embedded=true";
 
-    // 電話反映
-    const telTargets = ["TEL_BTN_TOP","TEL_BTN","TEL_F"];
-    document.getElementById("TEL_BTN_TOP").href = "tel:" + TEL;
-    document.getElementById("TEL_BTN").href = "tel:" + TEL;
+    // text
+    document.getElementById("SERVICE_NAME").textContent = SERVICE_NAME;
+    document.getElementById("FOOTER_NAME").textContent = SERVICE_NAME;
+    ["AREA","AREA2","AREA_F","AREA_CTA"].forEach(id => document.getElementById(id).textContent = AREA);
     document.getElementById("TEL_F").textContent = TEL;
 
-    // テキスト反映
-    document.getElementById("SERVICE_NAME").textContent = SERVICE_NAME;
-    document.getElementById("SERVICE_NAME_F").textContent = SERVICE_NAME;
+    // tel
+    document.getElementById("TEL_BTN_TOP").href = "tel:" + TEL;
+    document.getElementById("TEL_BTN").href = "tel:" + TEL;
 
-    ["AREA","AREA2","AREA_F","AREA_CTA"].forEach(id=>{
-      document.getElementById(id).textContent = AREA;
-    });
+    // form fallback
+    document.getElementById("FORM_FALLBACK").href = FORM_SHORT;
+
+    // embed
+    const iframe = document.getElementById("FORM_IFRAME");
+    iframe.src = FORM_EMBED;
   </script>
 </body>
 </html>
