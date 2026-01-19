@@ -4,38 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>足立区・草加｜不動産相続・売却の悩み相談（無料・秘密厳守）</title>
-  <meta name="description" content="足立区・草加エリア。不動産相続や売却の悩みを整理して次の一手へ。相談無料・秘密厳守・24時間受付。司法書士・税理士と連携しワンチームで解決を支援します。" />
-  <meta name="keywords" content="足立区,草加,不動産,相続,売却,相談,空き家,共有名義" />
-
-  <!-- Fonts -->
+  <meta name="description" content="足立区・草加エリア。相続した家や土地の悩みを整理し、売却・保有・賃貸の次の一手を一緒に決めます。相談無料・秘密厳守・24時間受付。司法書士・税理士と連携。" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#ffffff;
-      --ink:#0b1220;
-      --text:#0f172a;
-      --muted:#475569;
-      --sub:#64748b;
+      /* Color system - より洗練されたトーンへ */
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --sub:#94a3b8;
       --line:#e2e8f0;
-      --soft:#f7f7f5;
 
-      --navy:#0b1220;
-      --navy2:#223a66;
-      --green:#16a34a;
-      --green2:#22c55e;
+      --navy:#1e293b;
+      --accent:#0ea5e9; /* 信頼の青 */
+      --green:#22c55e;
+      --green-deep:#16a34a;
 
-      --radius: 22px;
-      --shadow: 0 18px 60px rgba(2,6,23,.12);
-      --shadow2: 0 10px 26px rgba(2,6,23,.08);
-      --max: 1120px;
+      --radius: 24px;
+      --shadow: 0 20px 50px rgba(0,0,0,.05);
+      --shadow-hover: 0 30px 60px rgba(0,0,0,.1);
 
-      --h1: clamp(34px, 4.4vw, 56px);
-      --h2: 22px;
-      --p: 16px;
-      --lh: 1.9;
+      --max: 1100px;
+      --h1: clamp(32px, 5vw, 52px);
+      --h2: clamp(24px, 3vw, 32px);
+
+      --lh: 1.8;
+      --ls: 0.04em;
+      --secY: 100px;
     }
 
     *{ box-sizing:border-box; }
@@ -44,660 +45,331 @@
       margin:0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", sans-serif;
+      font-family: "Noto Sans JP", sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
       line-height: var(--lh);
+      letter-spacing: var(--ls);
     }
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
-    .muted{ color: var(--muted); }
-    .sub{ color: var(--sub); }
-    .small{ font-size: 12px; color: var(--sub); line-height: 1.85; }
-    .section{ margin: 38px 0; }
-    .h2{ font-size: var(--h2); font-weight: 900; letter-spacing:.01em; margin: 0 0 14px; }
-    .card{
-      background:#fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow2);
+    
+    /* Utility */
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 24px; }
+    .section{ padding: var(--secY) 0; }
+    .highlight{
+      background: linear-gradient(transparent 70%, rgba(34,197,94,.25) 70%);
+      font-weight: 900;
+      color: var(--ink);
     }
-    .pad{ padding: 22px; }
+    
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:12px;
+      padding: 18px 32px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--green), var(--green-deep));
+      color:#fff; font-weight: 700; font-size: 16px;
+      box-shadow: 0 10px 25px rgba(34,197,94,.3);
+      border: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 15px 30px rgba(34,197,94,.4); filter: brightness(1.05); }
+    
+    .btnAlt{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 16px 28px; border-radius: 999px;
+      background:#fff; border: 2px solid var(--line);
+      color: var(--ink); font-weight: 700; font-size: 15px;
+      transition: all 0.2s ease;
+    }
+    .btnAlt:hover{ border-color: var(--sub); background: var(--bg); }
 
     /* Topbar */
     .topbar{
-      position: sticky; top:0; z-index: 50;
-      background: rgba(255,255,255,.88);
+      position: sticky; top:0; z-index: 100;
+      background: rgba(255,255,255,.8);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(0,0,0,.05);
     }
-    .topbar .row{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 12px; padding: 12px 0;
-    }
-    .brand{ display:flex; align-items:center; gap: 12px; min-width:0; }
+    .topbar .row{ display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
     .mark{
-      width: 40px; height: 40px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      box-shadow: 0 14px 34px rgba(15,23,42,.16);
-      display:flex; align-items:center; justify-content:center;
-      flex:none;
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--navy); display:flex; align-items:center; justify-content:center;
     }
-    .mark svg{ width: 18px; height:18px; opacity: .95; }
-    .brandText{ display:flex; flex-direction:column; gap: 2px; min-width:0; }
-    .brandName{
-      font-weight: 900;
-      letter-spacing: .02em;
-      font-size: 15px;
-      white-space: nowrap; overflow:hidden; text-overflow: ellipsis;
-    }
-    .brandSub{
-      font-size: 12px; color: var(--sub);
-      white-space: nowrap; overflow:hidden; text-overflow: ellipsis;
-    }
-    .nav{ display:flex; align-items:center; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
-    .chip{
-      font-size: 12px; color: var(--sub);
-      border: 1px solid var(--line); background:#fff;
-      padding: 7px 10px; border-radius: 999px; white-space:nowrap;
-    }
-    .link{
-      font-size: 12px; font-weight: 900;
-      border: 1px solid var(--line); background:#fff;
-      padding: 10px 12px; border-radius: 14px;
-    }
-    @media (max-width: 860px){ .chip{ display:none; } }
+    .brandName{ font-weight: 900; font-size: 16px; color: var(--ink); display: block; }
+    .brandSub{ font-size: 11px; color: var(--muted); display: block; }
 
     /* Hero */
-    .hero{
-      position:relative;
-      padding: 44px 0 28px;
-      background:
-        radial-gradient(900px 520px at 18% 0%, rgba(34,197,94,.14), rgba(34,197,94,0) 62%),
-        radial-gradient(900px 520px at 82% 0%, rgba(11,18,32,.10), rgba(11,18,32,0) 55%),
-        linear-gradient(180deg, #ffffff 0%, var(--soft) 62%, #ffffff 100%);
-      border-bottom: 1px solid var(--line);
-      overflow:hidden;
-    }
-    .heroGrid{
-      display:grid; grid-template-columns: 1.1fr .9fr; gap: 22px; align-items:start;
-    }
-    @media (max-width: 980px){ .heroGrid{ grid-template-columns:1fr; } }
+    .hero{ padding: 60px 0; overflow: hidden; position: relative; }
+    .heroGrid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+    @media (max-width: 980px){ .heroGrid{ grid-template-columns: 1fr; } }
 
-    .pillRow{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 16px; }
     .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 12px; border-radius: 999px;
-      border: 1px solid var(--line); background: rgba(255,255,255,.92);
-      font-size: 12px; font-weight: 900; color: var(--ink);
-      box-shadow: 0 10px 24px rgba(2,6,23,.06);
-      white-space: nowrap;
-    }
-    .dot{ width: 8px; height: 8px; border-radius:50%; background: var(--green); box-shadow: 0 0 0 4px rgba(22,163,74,.10); }
-
-    .h1{
-      font-size: var(--h1);
-      line-height: 1.10;
-      margin: 0 0 14px;
-      letter-spacing: .01em;
-      color: var(--ink);
-    }
-    .lead{
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: var(--p);
-      max-width: 64ch;
-    }
-    .lead strong{ color: var(--text); font-weight: 900; }
-
-    /* Benefits (icons) */
-    .benefits{
-      display:grid; grid-template-columns: repeat(4,1fr);
-      gap: 10px;
-      margin-top: 18px;
-    }
-    @media (max-width: 980px){ .benefits{ grid-template-columns: repeat(2,1fr); } }
-    .benefit{
-      background: rgba(255,255,255,.92);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px 14px;
-      box-shadow: 0 12px 28px rgba(2,6,23,.06);
-      display:flex; gap: 12px; align-items:flex-start;
-      min-height: 72px;
-    }
-    .bicon{
-      width: 34px; height: 34px; border-radius: 14px;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.22);
-      display:flex; align-items:center; justify-content:center;
-      flex:none;
-      margin-top: 2px;
-    }
-    .benefit b{ display:block; font-size: 13px; font-weight: 900; }
-    .benefit span{ display:block; font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-    /* Buttons */
-    .btnRow{ display:grid; grid-template-columns: 1fr; gap: 10px; margin-top: 16px; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 16px 16px; border-radius: 16px;
-      background: linear-gradient(135deg, var(--green), var(--green2));
-      color:#0b1220; font-weight: 900; letter-spacing:.01em; font-size: 15px;
-      box-shadow: 0 18px 40px rgba(34,197,94,.18);
-      border: 0;
-      min-height: 52px;
-    }
-    .btn:hover{ filter: brightness(1.02); }
-    .btnAlt{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 15px 16px; border-radius: 16px;
-      background:#fff; border: 1px solid var(--line);
-      color: var(--ink); font-weight: 900; font-size: 14px;
-      min-height: 52px;
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line);
+      font-size: 12px; font-weight: 700; color: var(--green-deep);
+      margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.03);
     }
 
-    /* Visual (photo-ish without real photo) */
-    .visual{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    .visualWrap{
-      padding: 18px;
-      background:
-        radial-gradient(520px 280px at 20% 20%, rgba(34,197,94,.16), rgba(34,197,94,0) 62%),
-        radial-gradient(520px 280px at 85% 30%, rgba(11,18,32,.12), rgba(11,18,32,0) 62%),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-    }
-    .visNote{ margin-top: 10px; font-size: 12px; color: var(--sub); }
+    .h1{ font-size: var(--h1); line-height: 1.2; margin: 0 0 24px; color: var(--ink); font-weight: 900; }
+    .lead{ font-size: 17px; color: var(--text); margin-bottom: 32px; }
 
-    /* Grids */
-    .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    @media (max-width: 980px){ .grid3{ grid-template-columns: 1fr; } }
-    .mini{
-      background:#fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow2);
+    /* Pain points & Benefits */
+    .featureGrid{ display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-bottom: 40px; }
+    .fItem{
+      background: #fff; padding: 16px; border-radius: 16px;
+      border: 1px solid var(--line); display:flex; gap:12px;
     }
-    .mini h3{ margin: 0 0 8px; font-size: 14px; font-weight: 900; }
-    .mini p{ margin: 0; font-size: 13px; color: var(--muted); line-height: 1.8; }
-    .icon{
-      width: 34px; height: 34px; border-radius: 14px;
-      background: rgba(34,197,94,.10);
-      border: 1px solid rgba(34,197,94,.20);
-      display:flex; align-items:center; justify-content:center;
-      margin-bottom: 10px;
+    .fIcon{
+      flex:none; width: 32px; height:32px; border-radius: 8px;
+      background: rgba(34,197,94,.1); display:flex; align-items:center; justify-content:center;
     }
-    .icon svg{ width: 18px; height: 18px; }
+    .fText b{ display:block; font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+    .fText span{ font-size: 12px; color: var(--muted); line-height: 1.5; display:block; }
+
+    /* Hero Illustration Card */
+    .heroArt{
+      background: #fff; border-radius: var(--radius);
+      padding: 30px; border: 1px solid var(--line);
+      box-shadow: var(--shadow); position: relative;
+    }
+    .expertBadge{
+      position: absolute; top: -15px; right: -15px;
+      background: var(--navy); color: #fff; padding: 12px 20px;
+      border-radius: 12px; font-size: 12px; font-weight: 700;
+      box-shadow: 0 10px 20px rgba(0,0,0,.15);
+      line-height: 1.4;
+    }
+
+    /* Reasons Section */
+    .h2-area{ text-align:center; margin-bottom: 50px; }
+    .h2{ font-size: var(--h2); font-weight: 900; color: var(--ink); margin:0 0 12px; }
+    .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media (max-width: 880px){ .grid3{ grid-template-columns: 1fr; } }
+    
+    .miniCard{
+      background:#fff; border-radius: var(--radius); padding: 40px 30px;
+      border: 1px solid var(--line); transition: 0.3s;
+      text-align: center;
+    }
+    .miniCard:hover{ transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--green); }
+    .num{ font-size: 48px; font-weight: 900; color: rgba(34,197,94,.1); line-height: 1; margin-bottom: -20px; }
+    .miniCard h3{ font-size: 18px; font-weight: 900; color: var(--ink); margin-bottom: 12px; position: relative; }
+    .miniCard p{ font-size: 14px; color: var(--text); margin:0; }
 
     /* Steps */
-    .steps{ display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-    @media (max-width: 980px){ .steps{ grid-template-columns: 1fr; } }
-    .step{
-      background:#fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow2);
+    .stepRow{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
+    @media (max-width: 880px){ .stepRow{ grid-template-columns: 1fr; } }
+    .stepBox{
+      background:rgba(255,255,255,.5); border-radius: 20px; padding: 24px;
+      border: 1px dashed var(--line); position: relative;
     }
-    .stepNum{
-      display:inline-flex; align-items:center; justify-content:center;
-      width: 34px; height: 34px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      color:#fff; font-weight: 900; font-size: 13px;
-      margin-bottom: 10px;
+    .sNum{
+      width: 32px; height: 32px; background: var(--navy); color:#fff;
+      border-radius: 50%; display:flex; align-items:center; justify-content:center;
+      font-size: 14px; font-weight: 900; margin-bottom: 12px;
     }
-    .step h3{ margin:0 0 6px; font-size: 14px; font-weight: 900; }
-    .step p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.75; }
+    .stepBox h3{ font-size: 15px; margin: 0 0 8px; color: var(--ink); }
+    .stepBox p{ font-size: 13px; margin:0; color: var(--muted); }
 
-    /* FAQ */
-    details{
-      background:#fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 12px 14px;
-      box-shadow: var(--shadow2);
-    }
-    summary{ cursor:pointer; font-weight: 900; font-size: 14px; }
-    details p{ margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height:1.85; }
-
-    /* Form */
-    .formWrap{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background:#fff;
-    }
-    .formBar{
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap: 10px;
-      padding: 16px 16px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.95);
-      flex-wrap:wrap;
-    }
-    .formBar b{ font-size: 14px; }
-    iframe{ width:100%; border:0; height: 900px; }
-    @media (max-width: 520px){ iframe{ height: 1060px; } }
-
-    .privacyBox{
-      background: rgba(34,197,94,.08);
-      border: 1px solid rgba(34,197,94,.18);
-      border-radius: 18px;
-      padding: 14px 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    .privacyBox b{ color: var(--ink); }
-
-    /* Footer */
-    footer{
-      background: var(--navy);
-      color: rgba(255,255,255,.88);
-      padding: 32px 0 28px;
-    }
-    footer .cols{ display:grid; grid-template-columns: 1.2fr .8fr; gap: 14px; }
-    @media (max-width: 980px){ footer .cols{ grid-template-columns:1fr; } }
-    footer .fName{ font-weight: 900; letter-spacing:.01em; font-size: 14px; }
-    footer .fText{ margin-top: 10px; font-size: 12px; color: rgba(255,255,255,.72); line-height: 1.9; }
-    .inlineLink{ text-decoration: underline; text-underline-offset: 3px; }
-
-    /* Fixed CTA */
+    /* Floating CTA */
     .ctaFixed{
-      position: fixed; left: 0; right: 0; bottom: 0;
-      z-index: 80;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--line);
-      padding: 10px 12px;
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 40px); max-width: 600px;
+      background: rgba(15,23,42,0.95); backdrop-filter: blur(10px);
+      border-radius: 20px; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; z-index: 1000; box-shadow: 0 20px 40px rgba(0,0,0,.3);
     }
-    .ctaRow{
-      max-width: var(--max);
-      margin: 0 auto;
-      display:flex;
-      gap: 10px;
-      align-items:center;
+    .ctaInfo{ color: #fff; }
+    .ctaInfo span{ display: block; font-size: 10px; opacity: 0.7; }
+    .ctaInfo b{ display: block; font-size: 14px; }
+    .ctaBtns{ display: flex; gap: 8px; }
+    .ctaBtnSmall{
+      padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: 13px;
+      text-decoration: none; white-space: nowrap;
     }
-    .ctaText{
-      width: 52%;
-      font-size: 12px;
-      color: var(--sub);
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    @media (max-width: 760px){ .ctaText{ display:none; } }
-    .ctaCall{
-      width: 34%;
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 14px 14px; border-radius: 16px;
-      background:#fff; border: 1px solid var(--line);
-      font-weight: 900; font-size: 14px; white-space: nowrap;
-      min-height: 44px;
-    }
-    .ctaMain{
-      flex: 1;
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 14px 14px; border-radius: 16px;
-      background: linear-gradient(135deg, var(--green), var(--green2));
-      color:#0b1220;
-      font-weight: 900; font-size: 14px; white-space: nowrap;
-      min-height: 44px;
-      box-shadow: 0 18px 40px rgba(34,197,94,.14);
-    }
+    .ctaBtnSmall.tel{ background: transparent; border: 1px solid rgba(255,255,255,.3); color: #fff; }
+    .ctaBtnSmall.main{ background: var(--green); color: #fff; }
 
-    main{ padding: 26px 0 132px; }
+    /* Form section */
+    .formContainer{
+      background: #fff; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--line); box-shadow: var(--shadow);
+    }
+    iframe{ width: 100%; border:0; min-height: 800px; }
+
+    footer{ background: var(--navy); color: rgba(255,255,255,.6); padding: 60px 0; font-size: 13px; }
+    footer b{ color: #fff; }
+
+    @media (max-width: 600px){
+      .featureGrid{ grid-template-columns: 1fr; }
+      .ctaInfo{ display: none; }
+      .ctaBtns{ width: 100%; }
+      .ctaBtnSmall{ flex: 1; text-align: center; }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Topbar -->
-  <div class="topbar">
+
+  <nav class="topbar">
     <div class="wrap">
       <div class="row">
         <a class="brand" href="#">
-          <div class="mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 11.5 12 5l8 6.5V20a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 20v-8.5Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="M9.5 21v-7.2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V21" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="brandText">
-            <div class="brandName" id="SERVICE_NAME">不動産相続窓口〇〇</div>
-            <div class="brandSub"><span id="AREA">足立区・草加</span>｜無料相談・秘密厳守</div>
+          <div class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div>
+            <span class="brandName" id="SERVICE_NAME">不動産相続窓口〇〇</span>
+            <span class="brandSub">足立区・草加エリア特化</span>
           </div>
         </a>
-
-        <div class="nav">
-          <span class="chip">地域特化</span>
-          <span class="chip">ワンチーム対応</span>
-          <a class="link" href="#reasons">選ばれる理由</a>
-          <a class="link" href="#form">無料相談</a>
-        </div>
+        <a href="#form" class="btn" style="padding: 10px 20px; font-size: 14px;">無料相談</a>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- Hero -->
   <header class="hero">
     <div class="wrap">
       <div class="heroGrid">
-
-        <!-- Left -->
         <div>
-          <div class="pillRow">
-            <span class="pill"><span class="dot"></span>相続した家・土地の悩み相談</span>
-            <span class="pill"><span class="dot"></span>売却/保有/賃貸を整理</span>
-            <span class="pill"><span class="dot"></span><span id="AREA2">足立区・草加</span></span>
-          </div>
-
-          <!-- ✅ 指示どおり「自分ごと化」キャッチ -->
-          <h1 class="h1">
-            相続した家、<br>
-            <span style="background:linear-gradient(transparent 62%, rgba(34,197,94,.22) 62%);">売るべきか・残すべきか</span><br>
-            迷っていませんか？
-          </h1>
-
-          <p class="lead">
-            「空き家のまま放置している」「共有名義で話が進まない」「売却の進め方が分からない」――<br>
-            まずは<strong>状況を整理</strong>して、次の一手（やること）を<strong>明確にします</strong>。必要に応じて<strong>司法書士・税理士</strong>と連携し、ワンチームで解決へ進めます。
-          </p>
-
-          <!-- ✅ ベネフィット明示 -->
-          <div class="benefits">
-            <div class="benefit">
-              <div class="bicon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div><b>相談無料</b><span>まずは状況整理から</span></div>
+          <span class="pill">足立区・草加の不動産相続</span>
+          <h1 class="h1">相続した家、<br><span class="highlight">「整理」して次の一手</span>を<br>一緒に決めませんか？</h1>
+          <p class="lead">空き家放置、共有名義の悩み、売却の是非。専門家と連携し、あなたの状況に合わせた「最善の選択肢」を無料で整理します。</p>
+          
+          <div class="featureGrid">
+            <div class="fItem">
+              <div class="fIcon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <div class="fText"><b>相談は何度でも無料</b><span>まずは状況の整理から。</span></div>
             </div>
-            <div class="benefit">
-              <div class="bicon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4Z" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div><b>秘密厳守</b><span>個人情報は厳重管理</span></div>
-            </div>
-            <div class="benefit">
-              <div class="bicon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10v4H7V4Z" stroke="#16a34a" stroke-width="2.2"/><path d="M6 22h12M8 8v14m8-14v14" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"/></svg>
-              </div>
-              <div><b>24時間受付</b><span>フォームはいつでもOK</span></div>
-            </div>
-            <div class="benefit">
-              <div class="bicon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-9-9" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round"/></svg>
-              </div>
-              <div><b>最短当日ご連絡</b><span>内容確認後に折り返し</span></div>
+            <div class="fItem">
+              <div class="fIcon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+              <div class="fText"><b>秘密厳守を徹底</b><span>ご家族に内緒の相談も可。</span></div>
             </div>
           </div>
 
-          <div class="btnRow">
-            <a class="btn" href="#form">【無料】まずは状況を整理してみる</a>
-            <a class="btnAlt" id="TEL_BTN_TOP" href="tel:03-XXXX-XXXX">電話で相談する（留守電OK）</a>
-          </div>
-
-          <div class="small" style="margin-top:10px;">
-            ※ 相続税の確定算定・申告は税理士領域です（必要に応じて連携します）。<br>
-            ※ 来店不要。電話・オンライン中心で進めます。
+          <div style="display: flex; gap:12px; flex-wrap: wrap;">
+            <a href="#form" class="btn">無料で状況を整理してみる</a>
+            <a href="tel:03-XXXX-XXXX" class="btnAlt">電話で相談</a>
           </div>
         </div>
 
-        <!-- Right Visual -->
-        <div>
-          <div class="visual">
-            <div class="visualWrap">
-              <!-- 実写なしでも「写真っぽい」清潔感：抽象×家 -->
-              <svg viewBox="0 0 900 560" width="100%" height="auto" aria-label="安心感のある家と相談のイメージ（イラスト）">
-                <defs>
-                  <linearGradient id="gN" x1="0" x2="1">
-                    <stop offset="0" stop-color="#0b1220"/>
-                    <stop offset="1" stop-color="#223a66"/>
-                  </linearGradient>
-                  <linearGradient id="gG" x1="0" x2="1">
-                    <stop offset="0" stop-color="#22c55e" stop-opacity=".22"/>
-                    <stop offset="1" stop-color="#22c55e" stop-opacity=".04"/>
-                  </linearGradient>
-                  <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0b1220" flood-opacity=".12"/>
-                  </filter>
-                </defs>
-
-                <path d="M60,250 C170,80 360,80 420,200 C480,320 400,440 260,460 C140,478 70,402 50,320 C36,265 40,255 60,250Z" fill="url(#gG)"/>
-                <path d="M600,110 C720,20 860,70 885,210 C910,360 770,450 650,420 C540,392 505,285 525,205 C540,140 555,125 600,110Z" fill="url(#gG)"/>
-
-                <g filter="url(#sh)">
-                  <rect x="110" y="120" width="680" height="320" rx="28" fill="#ffffff" stroke="#e2e8f0"/>
-
-                  <g transform="translate(150,170)">
-                    <path d="M20 46 L70 10 L120 46 V120 H20 V46Z" fill="none" stroke="url(#gN)" stroke-width="8" stroke-linejoin="round"/>
-                    <path d="M58 120 V78 a8 8 0 0 1 8-8 h8 a8 8 0 0 1 8 8 v42" fill="none" stroke="#22c55e" stroke-width="8" stroke-linejoin="round"/>
-                  </g>
-
-                  <text x="320" y="198" font-size="30" font-weight="900" fill="#0f172a">相続不動産を「整理」して前に進める</text>
-                  <text x="320" y="238" font-size="16" fill="#64748b">売却・保有・賃貸の選択肢を分かりやすく提示します</text>
-
-                  <g transform="translate(320,270)">
-                    <rect x="0" y="0" width="420" height="52" rx="16" fill="#f7f7f5" stroke="#e2e8f0"/>
-                    <text x="18" y="34" font-size="14" font-weight="700" fill="#0f172a">無料相談／秘密厳守／ワンチーム対応</text>
-
-                    <rect x="0" y="72" width="420" height="52" rx="16" fill="#f7f7f5" stroke="#e2e8f0"/>
-                    <text x="18" y="106" font-size="14" font-weight="700" fill="#0f172a">足立区・草加エリアに特化</text>
-                  </g>
-                </g>
-              </svg>
-
-              <div class="visNote">※ 実写を使わず、清潔感と信頼感が出るトーンで統一しています。</div>
-            </div>
-          </div>
-
-          <div class="card" style="margin-top:14px;">
-            <div class="pad">
-              <b style="font-size:14px;">最初に整理すること（これだけでOK）</b>
-              <div class="small" style="margin-top:10px;">
-                ① 物件の場所・名義　② 相続人（関係者）　③ 今の困りごと（空き家／共有／売却など）<br>
-                ここが分かれば、次の一手が決まりやすいです。
-              </div>
-            </div>
-          </div>
-
+        <div class="heroArt">
+          <div class="expertBadge">司法書士・税理士<br>連携窓口</div>
+          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" rx="20" fill="#F8FAFC"/>
+            <circle cx="200" cy="150" r="80" fill="white" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.05))"/>
+            <path d="M170 140H230M170 160H230M185 180H215" stroke="#1E293B" stroke-width="8" stroke-linecap="round"/>
+            <path d="M150 100L200 60L250 100V200H150V100Z" stroke="#22C55E" stroke-width="8" stroke-linejoin="round"/>
+            <text x="200" y="240" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="#1E293B">売る・持つ・貸す</text>
+            <text x="200" y="265" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#64748B">あらゆる選択肢をシミュレーション</text>
+          </svg>
         </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <section class="section" style="background: #fff;">
     <div class="wrap">
-
-      <!-- ✅ 選ばれる理由 -->
-      <section class="section" id="reasons">
-        <div class="h2">選ばれる理由</div>
-        <div class="grid3">
-          <div class="mini">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10M7 12h10M7 17h7" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <h3>地域特化で、判断の精度を上げます</h3>
-            <p>広く浅くではなく、足立区・草加エリアに絞ることで、現実的な判断と進め方を提示します。</p>
-          </div>
-          <div class="mini">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4Z" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>秘密厳守・強引な営業なし</h3>
-            <p>売却ありきの提案はしません。状況整理と選択肢提示を優先し、納得して進める設計にします。</p>
-          </div>
-          <div class="mini">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>ワンチームで解決へ</h3>
-            <p>必要に応じて司法書士・税理士と連携します。窓口が一本化されるので進めやすくなります。</p>
-          </div>
+      <div class="h2-area">
+        <h2 class="h2">選ばれる3つの理由</h2>
+        <p style="color:var(--muted)">地域密着だからこそできる、地に足のついたサポート。</p>
+      </div>
+      <div class="grid3">
+        <div class="miniCard">
+          <div class="num">01</div>
+          <h3>地域特化の相場観</h3>
+          <p>足立区・草加エリアの市場を熟知。机上の空論ではない、現実的な売却価格や活用法を提示します。</p>
         </div>
-      </section>
-
-      <!-- ✅ 相談の流れ -->
-      <section class="section">
-        <div class="h2">相談の流れ</div>
-        <div class="steps">
-          <div class="step">
-            <div class="stepNum">1</div>
-            <h3>フォーム入力（1〜2分）</h3>
-            <p>分かる範囲でOK。24時間受付です。</p>
-          </div>
-          <div class="step">
-            <div class="stepNum">2</div>
-            <h3>担当者からご連絡</h3>
-            <p>内容を確認し、最短当日で折り返します。</p>
-          </div>
-          <div class="step">
-            <div class="stepNum">3</div>
-            <h3>ヒアリング（状況整理）</h3>
-            <p>名義・関係者・期限・優先順位を整理します。</p>
-          </div>
-          <div class="step">
-            <div class="stepNum">4</div>
-            <h3>選択肢と次の一手をご提案</h3>
-            <p>売却／保有／賃貸などの判断材料を提示します。</p>
-          </div>
+        <div class="miniCard">
+          <div class="num">02</div>
+          <h3>ワンストップ対応</h3>
+          <p>権利関係は司法書士、税金は税理士。窓口を一本化することで、お客様の手間を最小限に抑えます。</p>
         </div>
-      </section>
-
-      <!-- ✅ FAQ -->
-      <section class="section" id="faq">
-        <div class="h2">よくある質問</div>
-        <div style="display:grid; gap: 12px;">
-          <details>
-            <summary>強引な営業はありませんか？</summary>
-            <p>ありません。売却ありきの提案はせず、状況整理と選択肢提示を優先します。</p>
-          </details>
-          <details>
-            <summary>まだ売ると決めていなくても相談できますか？</summary>
-            <p>大丈夫です。「決められない原因」を整理し、判断材料を整えることが目的です。</p>
-          </details>
-          <details>
-            <summary>相続税はいくらか、その場で答えられますか？</summary>
-            <p>確定的な算定・申告は税理士領域です。必要情報を整理し、必要に応じて連携して進めます。</p>
-          </details>
-          <details>
-            <summary>足立区・草加以外の物件でも相談できますか？</summary>
-            <p>品質担保のため、まずは足立区・草加エリア中心に対応します。内容により初回でお断りする場合があります。</p>
-          </details>
+        <div class="miniCard">
+          <div class="num">03</div>
+          <h3>「非売却」も選択肢</h3>
+          <p>無理に売却を勧めません。賃貸管理や活用、あるいは「そのまま持つ」メリットも正直にお伝えします。</p>
         </div>
-      </section>
-
-      <!-- ✅ Privacy + Form -->
-      <section class="section" id="form">
-        <div class="h2">【無料】相談フォーム</div>
-
-        <div class="privacyBox" style="margin-bottom:14px;">
-          <b>個人情報は厳重に管理します</b><br>
-          ご入力いただいた内容は相談対応のためにのみ利用し、第三者提供は行いません。<br>
-          <span class="small">※ プライバシーポリシーは整備次第、こちらにリンクを設置します。</span>
-        </div>
-
-        <div class="formWrap">
-          <div class="formBar">
-            <div>
-              <b>無料相談フォーム（1〜2分）</b>
-              <div class="small">まだ整理できていなくて大丈夫です。分かる範囲でご入力ください。</div>
-            </div>
-            <a class="btnAlt" id="FORM_FALLBACK" href="#" target="_blank" rel="noopener">フォームを別タブで開く</a>
-          </div>
-
-          <!-- Google Form embed（後でURL差し替え） -->
-          <iframe id="FORM_IFRAME" src="about:blank">読み込んでいます…</iframe>
-        </div>
-
-        <div class="small" style="margin-top:12px;">
-          ※ Googleフォームは仕様上、フォーム内部（必須表示の色・余白・ボタン色など）をLP側で変更できません。<br>
-          もしフォームまで含めて「完全におしゃれ」にしたい場合は、LP内の自前フォーム（推奨）に切り替え可能です。
-        </div>
-      </section>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="h2-area">
+        <h2 class="h2">ご相談の流れ</h2>
+      </div>
+      <div class="stepRow">
+        <div class="stepBox">
+          <div class="sNum">1</div>
+          <h3>お問い合わせ</h3>
+          <p>フォームまたはお電話にて。24時間受付中です。</p>
+        </div>
+        <div class="stepBox">
+          <div class="sNum">2</div>
+          <h3>現状のヒアリング</h3>
+          <p>専門スタッフが物件や状況を整理。Zoom等も可能です。</p>
+        </div>
+        <div class="stepBox">
+          <div class="sNum">3</div>
+          <h3>選択肢のご提案</h3>
+          <p>売却・活用・保有それぞれのシミュレーションを提示。</p>
+        </div>
+        <div class="stepBox">
+          <div class="sNum">4</div>
+          <h3>次の一手の実行</h3>
+          <p>納得いただいた場合のみ、具体的な手続きへ移ります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="form">
+    <div class="wrap" style="max-width: 800px;">
+      <div class="h2-area">
+        <h2 class="h2">無料相談フォーム</h2>
+        <p>「まだ何も決まっていない」状態で大丈夫です。<br>まずは私たちが状況を整理するお手伝いをします。</p>
+      </div>
+      <div class="formContainer">
+        <div style="padding: 20px; background: #f1f5f9; font-size: 13px; border-bottom: 1px solid var(--line);">
+          🛡️ <b>プライバシー保護</b>：ご入力内容は暗号化され、相談対応のみに使用されます。
+        </div>
+        <iframe id="FORM_IFRAME" src="about:blank">読み込んでいます…</iframe>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="wrap">
-      <div class="cols">
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;">
         <div>
-          <div class="fName" id="FOOTER_NAME">不動産相続窓口〇〇</div>
-          <div class="fText">
-            対象：<span id="AREA_F">足立区・草加</span>｜相談無料・秘密厳守｜来店不要（電話・オンライン）<br>
-            <b>プライバシー</b>：入力情報は相談対応のためにのみ利用し、厳重に管理します。第三者提供は行いません。<br>
-            ※ 宅建業免許は取得後に番号を掲載します。
-          </div>
+          <b style="font-size: 18px; display: block; margin-bottom: 10px;">不動産相続窓口〇〇</b>
+          <p>対象エリア：足立区・草加市全域<br>宅建業免許：取得準備中（※取得後掲載予定）</p>
         </div>
-        <div>
-          <div class="fText">
-            お問い合わせ：フォーム（24時間）または電話（留守電OK）<br>
-            TEL：<span id="TEL_F">03-XXXX-XXXX</span>
-          </div>
+        <div style="text-align: right;">
+          <p>相談無料・秘密厳守・24時間受付</p>
+          <p style="font-size: 20px; color: #fff; font-weight: 900;">TEL: 03-XXXX-XXXX</p>
         </div>
+      </div>
+      <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; text-align: center; font-size: 11px;">
+        &copy; 2026 不動産相続窓口〇〇 All Rights Reserved.
       </div>
     </div>
   </footer>
 
-  <!-- Fixed CTA -->
   <div class="ctaFixed">
-    <div class="ctaRow">
-      <div class="ctaText"><span id="AREA_CTA">足立区・草加</span>｜相続した不動産の「次の一手」を整理します</div>
-      <a class="ctaCall" id="TEL_BTN" href="tel:03-XXXX-XXXX">電話</a>
-      <a class="ctaMain" href="#form">【無料】相談してみる</a>
+    <div class="ctaInfo">
+      <span>足立区・草加の相続相談</span>
+      <b>まずは無料状況整理から</b>
+    </div>
+    <div class="ctaBtns">
+      <a href="tel:03-XXXX-XXXX" class="ctaBtnSmall tel">電話で聞く</a>
+      <a href="#form" class="ctaBtnSmall main">無料相談フォームへ</a>
     </div>
   </div>
 
   <script>
-    // =========================
-    // CONFIG（ここだけ変更）
-    // =========================
-    const SERVICE_NAME = "不動産相続窓口〇〇";    // 仮でOK
-    const AREA = "足立区・草加";
-    const TEL = "03-XXXX-XXXX";                  // 仮でOK
-
-    // ✅ 最新フォーム（別タブ用）
-    const FORM_SHORT = "https://forms.gle/sUdww7JR91Tc7mSEA";
-
-    // ✅ 埋め込み用（ここを「長いURL」に差し替える）
-    // 例：https://docs.google.com/forms/d/e/xxxxxxxxxxxx/viewform?embedded=true
-    const FORM_EMBED = "https://docs.google.com/forms/d/e/1FAIpQLSe8ZgO_YM89Eyv_UoxB728vsOMm54HNAIpSdAVZIcPfLKZk1Q/viewform?usp=header";
-
-    // reflect
-    document.getElementById("SERVICE_NAME").textContent = SERVICE_NAME;
-    document.getElementById("FOOTER_NAME").textContent = SERVICE_NAME;
-    ["AREA","AREA2","AREA_F","AREA_CTA"].forEach(id => document.getElementById(id).textContent = AREA);
-    document.getElementById("TEL_F").textContent = TEL;
-
-    // tel
-    document.getElementById("TEL_BTN_TOP").href = "tel:" + TEL;
-    document.getElementById("TEL_BTN").href = "tel:" + TEL;
-
-    // form fallback
-    document.getElementById("FORM_FALLBACK").href = FORM_SHORT;
-
-    // embed
-    const iframe = document.getElementById("FORM_IFRAME");
-    if (FORM_EMBED.includes("REPLACE_ME")) {
-      // 埋め込み未設定なら、フォームを開くボタンが主導線
-      iframe.outerHTML = `<div class="pad">
-        <b style="font-size:14px;">フォームは別タブで開きます</b>
-        <div class="small" style="margin-top:10px;">
-          埋め込み表示を使う場合は、Googleフォームの「長いURL（docs.google.com/forms/d/e/...）」を取得して、FORM_EMBED を差し替えてください。
-        </div>
-        <div style="margin-top:14px;">
-          <a class="btn" href="${FORM_SHORT}" target="_blank" rel="noopener">【無料】フォームを開く</a>
-        </div>
-      </div>`;
-    } else {
-      iframe.src = FORM_EMBED;
-    }
+    const FORM_LONG = "https://docs.google.com/forms/d/e/1FAIpQLSe8ZgO_YM89Eyv_UoxB728vsOMm54HNAIpSdAVZIcPfLKZk1Q/viewform?embedded=true";
+    document.getElementById("FORM_IFRAME").src = FORM_LONG;
   </script>
 </body>
 </html>
